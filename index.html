@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Водний трекер</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Твій прогрес по воді</h1>
+<a href="settings.html" class="link">⚙️ Налаштування</a>
+  <div class="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  <p id="progress-text">0 / 2000 мл</p>
+
+  <div class="input-container">
+    <input type="number" id="water-input" placeholder="Скільки мл випив?" min="50" step="50">
+    <button id="add-water">Додати</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
