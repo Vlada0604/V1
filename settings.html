@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Налаштування</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Налаштування</h1>
+
+  <div class="input-container">
+    <label for="goal">Добова норма води (мл): </label>
+    <input type="number" id="goal" placeholder="2000" min="500" step="100">
+    <button id="save-goal">Зберегти</button>
+  </div>
+<a href="index.html" class="link">⬅️ До прогресу</a>
+
+  <p id="status"></p>
+
+  <script>
+    const goalInput = document.getElementById("goal");
+    const saveBtn = document.getElementById("save-goal");
+    const status = document.getElementById("status");
+
+    // Завантажуємо попереднє значення
+    const savedGoal = localStorage.getItem("dailyGoal");
+    if (savedGoal) {
+      goalInput.value = savedGoal;
+    }
+
+    saveBtn.addEventListener("click", () => {
+      const newGoal = parseInt(goalInput.value);
+      if (!isNaN(newGoal) && newGoal > 0) {
+        localStorage.setItem("dailyGoal", newGoal);
+        status.textContent = "✅ Норма збережена!";
+        setTimeout(() => status.textContent = "", 2000);
+      }
+    });
+  </script>
+</body>
+</html>
